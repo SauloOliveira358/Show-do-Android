@@ -5,4 +5,8 @@
     <color name="android_yellow">#FFD54F</color>
     <color name="android_gray_dark">#121212</color>
     <color name="android_text_secondary">#B0BEC5</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+
 </resources>

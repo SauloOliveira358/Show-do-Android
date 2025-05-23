@@ -2,65 +2,69 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#121212"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="24dp">
 
     <!-- Título -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quiz Android"
-        android:textSize="32sp"
-        android:textColor="#3DDC84"
-        android:textStyle="bold"
         android:gravity="center"
-        android:paddingBottom="24dp" />
+        android:paddingBottom="24dp"
+        android:text="Quiz Android"
+        android:textColor="#3DDC84"
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
     <!-- Subtítulo -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Desafie seu conhecimento!"
-        android:textSize="18sp"
-        android:textColor="#B0BEC5"
         android:gravity="center"
-        android:paddingBottom="32dp" />
+        android:paddingBottom="32dp"
+        android:text="Desafie seu conhecimento!"
+        android:textColor="#B0BEC5"
+        android:textSize="18sp" />
 
     <!-- Botões de ação -->
     <Button
+        android:id="@+id/idBtnIniciar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Iniciar Quiz"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#3DDC84"
+        android:text="Iniciar Quiz"
         android:textColor="#121212"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        android:textStyle="bold" />
 
     <Button
+        android:id="@+id/idBtnPlacar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Placar de Líderes"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#1E88E5"
+        android:text="Placar de Líderes"
         android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        android:textStyle="bold" />
 
     <Button
+        android:id="@+id/idBtnComoJogar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Como Jogar"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#FFD54F"
+        android:text="Como Jogar"
         android:textColor="#121212"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        android:textStyle="bold" />
 
     <Button
+        android:id="@+id/idBtnSair"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sair"
         android:backgroundTint="#EF5350"
+        android:text="Sair"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
@@ -68,9 +72,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
         android:text="Versão 1.0"
         android:textColor="#B0BEC5"
-        android:textSize="12sp"
-        android:gravity="center"
-        android:layout_marginTop="32dp" />
+        android:textSize="12sp" />
 </LinearLayout>
