@@ -13,7 +13,6 @@ private CheckBox resposta1,resposta2,resposta3,resposta4;
 private Button proxima_Pergunta;
 private boolean checkBoxTexto;
 private int pontuação;
-String voil;
 
 private String []  Perguntas = {
         "Pergunta1",
