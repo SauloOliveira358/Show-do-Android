@@ -6,4 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".Quiz">
 
+    <TextView
+        android:id="@+id/IdTextViewPergunta"
+        android:layout_width="0dp"
+        android:layout_height="107dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="161dp"
+        android:layout_marginEnd="70dp"
+        android:text="Pergunta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/IdCheckboxResposta1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginBottom="256dp"
+        android:minHeight="48dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/IdCheckboxResposta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="CheckBox"
+        app:layout_constraintBaseline_toBaselineOf="@+id/IdCheckboxResposta1"
+        app:layout_constraintEnd_toEndOf="@+id/IdCheckboxResposta4"
+        app:layout_constraintStart_toStartOf="@+id/IdCheckboxResposta4" />
+
+    <CheckBox
+        android:id="@+id/IdCheckboxResposta3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="48dp"
+        android:minHeight="48dp"
+        android:text="CheckBox"
+        app:layout_constraintStart_toStartOf="@+id/IdCheckboxResposta1"
+        app:layout_constraintTop_toBottomOf="@+id/IdCheckboxResposta1" />
+
+    <CheckBox
+        android:id="@+id/IdCheckboxResposta4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="68dp"
+        android:minHeight="48dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toTopOf="@+id/IdBtnProximaPergunta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IdCheckboxResposta2" />
+
+    <Button
+        android:id="@+id/IdBtnProximaPergunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="Proxima"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/IdTextViewShowdoAndroid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="73dp"
+        android:text="nome bem vindo ao show do android"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
