@@ -74,6 +74,9 @@ private int perguntaAtual = 0;
             public void onClick(View v) {
                 acertoErro();  // o metodo pra saber se acertou ou errou
                 if(perguntaAtual <= Perguntas.length-2){
+                    if(perguntaAtual <= Perguntas.length-3){
+                        proxima_Pergunta.setText("Finalizar");
+                    }
                     if(checkBoxTexto == true){
                         perguntaAtual++;
                         carregar_Perguntas();

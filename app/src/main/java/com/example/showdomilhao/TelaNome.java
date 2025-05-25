@@ -24,7 +24,7 @@ private EditText nome;
                 @Override
                 public void onClick(View v) {
                     if(!nome.getText().toString().trim().isEmpty()) {
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), Quiz.class);
                         startActivity(intent);
                     }
                 }

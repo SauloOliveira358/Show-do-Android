@@ -27,27 +27,8 @@ public class MainActivity extends AppCompatActivity {
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-
-                LayoutInflater inflater = getLayoutInflater();
-                View dialogView = inflater.inflate(R.layout.activity_tela_nome, null);
-                builder.setView(dialogView);
-
-                AlertDialog dialog = builder.create();
-                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                dialog.show();
-
-                EditText nome = dialogView.findViewById(R.id.idEditNomeUsuario);
-                Button continuar = dialogView.findViewById(R.id.idBtnContinuar);
-
-                continuar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(getApplicationContext(), Quiz.class);
-                        startActivity(intent);
-                        dialog.dismiss();
-                    }
-                });
+                Intent intent = new Intent(getApplicationContext(),TelaNome.class);
+                startActivity(intent);
             }
         });
         sair.setOnClickListener(new View.OnClickListener() {
