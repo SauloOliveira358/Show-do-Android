@@ -26,7 +26,7 @@ private String[][] Respostas = {
         {"Resposta1","Resposta2","Resposta3","Resposta4"},
 };
 
-private int [] respostaCerta = {1,2,0};
+private int [] respostaCerta = {1,2,0}; //aqui coloca as respostas correta em cada pergunta na ordem certa
 private int respostaSelecionada;
 private int perguntaAtual = 0;
     @Override
@@ -72,16 +72,25 @@ private int perguntaAtual = 0;
         proxima_Pergunta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                acertoErro();
-                if(checkBoxTexto == true){
-                    perguntaAtual++;
-                    carregar_Perguntas();
-                    //bloco para tirar o clique que fica no check box
-                    resposta1.setChecked(false);
-                    resposta2.setChecked(false);
-                    resposta3.setChecked(false);
-                    resposta4.setChecked(false);
-                    //fim do bloco
+                acertoErro();  // o metodo pra saber se acertou ou errou
+                if(perguntaAtual <= Perguntas.length-2){
+                    if(checkBoxTexto == true){
+                        perguntaAtual++;
+                        carregar_Perguntas();
+                        //bloco para tirar o clique que fica no check box
+                        resposta1.setChecked(false);
+                        resposta2.setChecked(false);
+                        resposta3.setChecked(false);
+                        resposta4.setChecked(false);
+                        //fim do bloco
+                }
+                }else{
+
+                    //Tela final de quantas acertou ou o que fazer
+                    //
+                    //
+                    //
+
                 }
             }
         }); // fim do botao proxima pergunta
@@ -90,7 +99,9 @@ private int perguntaAtual = 0;
     }
         //Carregar as perguntas de forma altomatica
     public void carregar_Perguntas(){
+        //aqui pega as perguntas pela perguntaAtual ai pega certinho de todas é o indice de controle
         pergunta.setText(Perguntas[perguntaAtual]);
+        //as resposta sao matriz porque ai cada linha tem 4 alternativas ai o indice delas e que vai pra cada alternativa
         resposta1.setText(Respostas[perguntaAtual][0]);
         resposta2.setText(Respostas[perguntaAtual][1]);
         resposta3.setText(Respostas[perguntaAtual][2]);
@@ -103,6 +114,7 @@ private int perguntaAtual = 0;
         if(respostaSelecionada == respostaCerta[perguntaAtual]){
             pontuação++;
             String Stringpontuação = String.valueOf(pontuação);
+            //ao pra testes
             bemVindo.setText(bemVindo.getText().toString() + " " + Stringpontuação);
         }
     }
