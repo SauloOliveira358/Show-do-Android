@@ -1,126 +1,151 @@
 package com.example.showdomilhao;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Quiz extends AppCompatActivity {
-private TextView bemVindo,pergunta;
-private CheckBox resposta1,resposta2,resposta3,resposta4;
-private Button proxima_Pergunta;
-private boolean checkBoxTexto;
-private int pontuação;
 
-private String []  Perguntas = {
-        "Pergunta1",
-        "Pergunta2",
-        "Pergunta3",
-};
+    // Componentes da interface
+    private TextView textoBemVindo, textoPergunta, textoNumeroPergunta;
+    private RadioGroup grupoRespostas;
+    private RadioButton resposta1, resposta2, resposta3, resposta4;
+    private Button botaoProxima;
 
-private String[][] Respostas = {
-        {"Resposta1","Resposta2","Resposta3","Resposta4"},
-        {"Resposta1","Resposta2","Resposta3","Resposta4"},
-        {"Resposta1","Resposta2","Resposta3","Resposta4"},
-};
+    // Controle do quiz
+    private int perguntaAtual = 0;
+    private int pontuacao = 0;
 
-private int [] respostaCerta = {1,2,0}; //aqui coloca as respostas correta em cada pergunta na ordem certa
-private int respostaSelecionada;
-private int perguntaAtual = 0;
+    // Perguntas
+    private String[] perguntas = {
+            "Onde você define permissões como acesso à internet no Android?",
+            "Qual método do ciclo de vida de uma Activity é chamado quando ela é criada?",
+            "Qual é a extensão dos arquivos de layout no Android Studio?",
+            "Qual destes não é um componente de interface no Android?",
+            "O que é um Intent no desenvolvimento Android?",
+            "O que o arquivo AndroidManifest.xml NÃO faz?",
+            "Qual linguagem de marcação é usada para criar layouts no Android Studio?",
+            "Qual componente serve para exibir um texto fixo na tela?",
+            "Onde você altera o nome do aplicativo?",
+            "Qual destes componentes permite ao usuário digitar texto?"
+    };
+
+
+    // Alternativas
+    private String[][] respostas = {
+            {"build.gradle", "activity_main.xml", "AndroidManifest.xml", "MainActivity.java"}, // Pergunta 1
+            {"onStart()", "onResume()", "onPause()", "onCreate()"}, // Pergunta 2
+            {".html", ".xml", ".json", ".layout"}, // Pergunta 3
+            {"TextView", "Button", "Intent", "EditText"}, // Pergunta 4
+            {"Um botão na interface", "Um layout XML", "Um mecanismo para navegação entre componentes", "Um tipo de banco de dados"}, // Pergunta 5
+            {"Declara atividades e serviços", "Configura permissões", "Define o layout da aplicação", "Define o nome do aplicativo"}, // Pergunta 6
+            {"HTML", "CSS", "XML", "JSON"}, // Pergunta 7
+            {"EditText", "Button", "TextView", "ImageView"}, // Pergunta 8
+            {"No arquivo MainActivity.java", "No AndroidManifest.xml", "No arquivo strings.xml", "No build.gradle"}, // Pergunta 9
+            {"TextView", "Button", "EditText", "ImageView"} // Pergunta 10
+    };
+
+
+    // Índice das respostas corretas
+    private int[] respostasCorretas = {2, 3, 1, 2, 2, 2, 2, 2, 2, 2};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        bemVindo = findViewById(R.id.IdTextViewShowdoAndroid);
-        pergunta = findViewById(R.id.IdTextViewPergunta);
-        resposta1 = findViewById(R.id.IdCheckboxResposta1);
-        resposta2 = findViewById(R.id.IdCheckboxResposta2);
-        resposta3 = findViewById(R.id.IdCheckboxResposta3);
-        resposta4 = findViewById(R.id.IdCheckboxResposta4);
 
-        carregar_Perguntas();
-        proxima_Pergunta = findViewById(R.id.IdBtnProximaPergunta);
+        // Ligando os elementos do XML
+        textoBemVindo = findViewById(R.id.IdTextViewShowdoAndroid);
+        textoPergunta = findViewById(R.id.IdTextViewPergunta);
+        textoNumeroPergunta = findViewById(R.id.IdTextViewNumeroPergunta);
+        grupoRespostas = findViewById(R.id.IdGrupoRespostas);
+        resposta1 = findViewById(R.id.IdRadioResposta1);
+        resposta2 = findViewById(R.id.IdRadioResposta2);
+        resposta3 = findViewById(R.id.IdRadioResposta3);
+        resposta4 = findViewById(R.id.IdRadioResposta4);
+        botaoProxima = findViewById(R.id.IdBtnProximaPergunta);
 
-        View.OnClickListener clique = new View.OnClickListener() {
+        // Carregar a primeira pergunta
+        carregarPergunta();
+
+        // Clique no botão Próxima
+        botaoProxima.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CheckBox clicou = (CheckBox) v;
-                //os ifs pega  cada resposta a qual clicou
-                // e atribu um valor a variavel resposta Selecionada
-                if(v == resposta1)respostaSelecionada = 0;
-                if(v == resposta2)respostaSelecionada = 1;
-                if(v == resposta3)respostaSelecionada = 2;
-                if(v == resposta4)respostaSelecionada = 3;
-                resposta1.setChecked(false);
-                resposta2.setChecked(false);
-                resposta3.setChecked(false);
-                resposta4.setChecked(false);
-
-                clicou.setChecked(true);
-                checkBoxTexto = true;       //pra pegar se selecionao e nao pular
-            }
-        };
-
-        resposta1.setOnClickListener(clique);
-        resposta2.setOnClickListener(clique);
-        resposta3.setOnClickListener(clique);
-        resposta4.setOnClickListener(clique);
-
-        //botao proxima pergunta
-        proxima_Pergunta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                acertoErro();  // o metodo pra saber se acertou ou errou
-                if(perguntaAtual <= Perguntas.length-2){
-                    if(perguntaAtual <= Perguntas.length-3){
-                        proxima_Pergunta.setText("Finalizar");
-                    }
-                    if(checkBoxTexto == true){
-                        perguntaAtual++;
-                        carregar_Perguntas();
-                        //bloco para tirar o clique que fica no check box
-                        resposta1.setChecked(false);
-                        resposta2.setChecked(false);
-                        resposta3.setChecked(false);
-                        resposta4.setChecked(false);
-                        //fim do bloco
+                if (!respostaSelecionada()) {
+                    Toast.makeText(Quiz.this, "Selecione uma resposta!", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                }else{
 
-                    //Tela final de quantas acertou ou o que fazer
-                    //
-                    //
-                    //
+                if (respostaCorreta()) {
+                    pontuacao++;
+                    Toast.makeText(Quiz.this, "Acertou!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Quiz.this, "Errou!", Toast.LENGTH_SHORT).show();
+                }
 
+                perguntaAtual++;
+
+                if (perguntaAtual < perguntas.length) {
+                    carregarPergunta();
+                } else {
+                    mostrarResultado();
                 }
             }
-        }); // fim do botao proxima pergunta
-
-
+        });
     }
-        //Carregar as perguntas de forma altomatica
-    public void carregar_Perguntas(){
-        //aqui pega as perguntas pela perguntaAtual ai pega certinho de todas é o indice de controle
-        pergunta.setText(Perguntas[perguntaAtual]);
-        //as resposta sao matriz porque ai cada linha tem 4 alternativas ai o indice delas e que vai pra cada alternativa
-        resposta1.setText(Respostas[perguntaAtual][0]);
-        resposta2.setText(Respostas[perguntaAtual][1]);
-        resposta3.setText(Respostas[perguntaAtual][2]);
-        resposta4.setText(Respostas[perguntaAtual][3]);
 
-    }//fim metodo carregar_Perguntas
+    // ✔️ Carrega pergunta e respostas na tela
+    private void carregarPergunta() {
+        textoPergunta.setText(perguntas[perguntaAtual]);
+        textoNumeroPergunta.setText("Pergunta " + (perguntaAtual + 1) + " de " + perguntas.length);
 
-    //metodo de acerto e erro
-    public void acertoErro(){
-        if(respostaSelecionada == respostaCerta[perguntaAtual]){
-            pontuação++;
-            String Stringpontuação = String.valueOf(pontuação);
-            //ao pra testes
-            bemVindo.setText(bemVindo.getText().toString() + " " + Stringpontuação);
+        resposta1.setText(respostas[perguntaAtual][0]);
+        resposta2.setText(respostas[perguntaAtual][1]);
+        resposta3.setText(respostas[perguntaAtual][2]);
+        resposta4.setText(respostas[perguntaAtual][3]);
+
+        grupoRespostas.clearCheck();
+
+        if (perguntaAtual == perguntas.length - 1) {
+            botaoProxima.setText("Finalizar");
+        } else {
+            botaoProxima.setText("Próxima");
         }
     }
 
+    // ✔️ Verifica se uma resposta foi selecionada
+    private boolean respostaSelecionada() {
+        return grupoRespostas.getCheckedRadioButtonId() != -1;
+    }
+
+    // ✔️ Verifica se a resposta selecionada é correta
+    private boolean respostaCorreta() {
+        int idSelecionado = grupoRespostas.getCheckedRadioButtonId();
+        int respostaIndex = -1;
+
+        if (idSelecionado == resposta1.getId()) respostaIndex = 0;
+        else if (idSelecionado == resposta2.getId()) respostaIndex = 1;
+        else if (idSelecionado == resposta3.getId()) respostaIndex = 2;
+        else if (idSelecionado == resposta4.getId()) respostaIndex = 3;
+
+        return respostaIndex == respostasCorretas[perguntaAtual];
+    }
+
+    // ✔️ Mostra resultado final
+    private void mostrarResultado() {
+        Intent intent = new Intent(Quiz.this, Resultado.class);
+        intent.putExtra("pontuacao", pontuacao);
+        startActivity(intent);
+        finish();
+    }
 
 }
+

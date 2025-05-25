@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
     android:gravity="center"
+    android:padding="24dp"
     android:background="@drawable/dialog_background">
 
     <TextView
         android:id="@+id/idTextNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="16dp"
         android:text="Digite seu nome:"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
 
     <EditText
         android:id="@+id/idEditNomeUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="#3DDC84"
         android:hint="Seu nome"
         android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textColorHint="#AAAAAA" />
+        android:minHeight="50dp"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#CCCCCC"/>
 
     <Button
         android:id="@+id/idBtnContinuar"
@@ -33,6 +37,7 @@
         android:layout_height="wrap_content"
         android:text="Continuar"
         android:backgroundTint="#3DDC84"
-        android:textColor="#121212" />
+        android:textColor="#121212"
+        android:minHeight="50dp"/>
 
 </LinearLayout>
