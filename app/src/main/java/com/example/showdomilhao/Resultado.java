@@ -1,7 +1,12 @@
 package com.example.showdomilhao;
 
 // Importação das bibliotecas necessárias
+import static com.example.showdomilhao.Dados.ARQUIVO_USUARIO;
+import static com.example.showdomilhao.Dados.NOME;
+import static com.example.showdomilhao.Dados.PONTUACAO;
+
 import android.content.Intent; // Para navegação entre telas (Activities)
+import android.content.SharedPreferences;
 import android.os.Bundle; // Para salvar e recuperar o estado da Activity
 import android.support.v7.app.AppCompatActivity; // Classe base para Activities
 import android.view.View; // Para lidar com eventos de clique
@@ -26,16 +31,16 @@ public class Resultado extends AppCompatActivity {
         botaoReiniciar = findViewById(R.id.idBotaoReiniciar);
 
         // Recupera a pontuação enviada pela Activity Quiz
-        Intent intent = getIntent();
-        int pontuacao = intent.getIntExtra("Resultado",0);
+        SharedPreferences preferences = getSharedPreferences(ARQUIVO_USUARIO, 0);
+        int pontuacao = preferences.getInt(PONTUACAO, 0);
+        String nome = preferences.getString(NOME, "Sem nome");
         // Se não receber nada, assume 0 como valor padrão
 
-        // Calcula a pontuação final
-        // Cada acerto vale 100 pontos, portanto multiplica pelo número de acertos
-        int pontuacaoFinal = resultado_Quiz * 100;
+
+
 
         // Exibe a pontuação na tela
-        textoPontuacao.setText(String.valueOf(pontuacaoFinal));
+        textoPontuacao.setText(String.valueOf(pontuacao));
 
         // Define ação ao clicar no botão "Reiniciar Quiz"
         botaoReiniciar.setOnClickListener(new View.OnClickListener() {

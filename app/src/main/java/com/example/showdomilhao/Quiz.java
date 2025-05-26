@@ -1,13 +1,18 @@
 package com.example.showdomilhao;
 
+import static com.example.showdomilhao.Dados.*;
+
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
 
 public class Quiz extends AppCompatActivity {
 private TextView bemVindo,pergunta;
@@ -31,6 +36,9 @@ private String[][] Respostas = {
 private int [] respostaCerta = {1,2,0}; //aqui coloca as respostas correta em cada pergunta na ordem certa
 private int respostaSelecionada;
 private int perguntaAtual = 0;
+
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +99,11 @@ private int perguntaAtual = 0;
                         //fim do bloco
                 }
                 }else{
-
+                    SharedPreferences preferences = getSharedPreferences(ARQUIVO_USUARIO, 0);
+                    SharedPreferences.Editor editor = preferences.edit();  //editamos
+                    editor.putInt(PONTUACAO,pontuação);
+                    editor.commit();//Salva o arquivo no banco
+                    editor.apply();
                     Intent intent2 = new Intent(getApplicationContext(),Resultado.class);
                     startActivity(intent2);
 
