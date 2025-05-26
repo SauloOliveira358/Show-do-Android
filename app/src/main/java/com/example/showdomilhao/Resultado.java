@@ -14,7 +14,7 @@ public class Resultado extends AppCompatActivity {
     // Declaração dos componentes da interface
     private TextView textoPontuacao; // Exibe a pontuação final
     private Button botaoReiniciar;   // Botão para reiniciar o quiz
-
+    private int resultado_Quiz;
     // Método onCreate é chamado quando a Activity é criada
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +27,12 @@ public class Resultado extends AppCompatActivity {
 
         // Recupera a pontuação enviada pela Activity Quiz
         Intent intent = getIntent();
-        int pontuacao = intent.getIntExtra("pontuacao", 0);
+        int pontuacao = intent.getIntExtra("Resultado",0);
         // Se não receber nada, assume 0 como valor padrão
 
         // Calcula a pontuação final
         // Cada acerto vale 100 pontos, portanto multiplica pelo número de acertos
-        int pontuacaoFinal = pontuacao * 100;
+        int pontuacaoFinal = resultado_Quiz * 100;
 
         // Exibe a pontuação na tela
         textoPontuacao.setText(String.valueOf(pontuacaoFinal));
@@ -42,10 +42,12 @@ public class Resultado extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Cria uma Intent para iniciar novamente a tela do Quiz
-                Intent intent = new Intent(Resultado.this, Quiz.class);
+                Intent intent = new Intent(Resultado.this, MainActivity.class);
                 startActivity(intent); // Inicia o Quiz
                 finish(); // Encerra a tela de Resultado para não ficar acumulando Activities
             }
         });
     }
+
+
 }

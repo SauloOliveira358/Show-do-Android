@@ -1,5 +1,7 @@
 package com.example.showdomilhao;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,30 +14,31 @@ private TextView bemVindo,pergunta;
 private CheckBox resposta1,resposta2,resposta3,resposta4;
 private Button proxima_Pergunta;
 private boolean checkBoxTexto;
-private int pontuação;
+private int pontuação = 0;
 
 private String []  Perguntas = {
-        "Pergunta1",
-        "Pergunta2",
+        "Qual arquivo é responsável por declarar permissões e configurações básicas de um app Android?",
+        "Para alterar o layout visual de uma activity, qual tipo de arquivo é normalmente utilizado?",
         "Pergunta3",
 };
 
 private String[][] Respostas = {
-        {"Resposta1","Resposta2","Resposta3","Resposta4"},
-        {"Resposta1","Resposta2","Resposta3","Resposta4"},
+        {"MainActivity.java","AndroidManifest.xml","strings.xml","styles.xml"},
+        {".java",".gradle",".xml",".json"},
         {"Resposta1","Resposta2","Resposta3","Resposta4"},
 };
 
 private int [] respostaCerta = {1,2,0}; //aqui coloca as respostas correta em cada pergunta na ordem certa
 private int respostaSelecionada;
 private int perguntaAtual = 0;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         bemVindo = findViewById(R.id.IdTextViewShowdoAndroid);
         pergunta = findViewById(R.id.IdTextViewPergunta);
-        resposta1 = findViewById(R.id.IdCheckboxResposta1);
+        resposta1 = findViewById(R.id.idCheckboxResposta1);
         resposta2 = findViewById(R.id.IdCheckboxResposta2);
         resposta3 = findViewById(R.id.IdCheckboxResposta3);
         resposta4 = findViewById(R.id.IdCheckboxResposta4);
@@ -74,7 +77,7 @@ private int perguntaAtual = 0;
             public void onClick(View v) {
                 acertoErro();  // o metodo pra saber se acertou ou errou
                 if(perguntaAtual <= Perguntas.length-2){
-                    if(perguntaAtual <= Perguntas.length-3){
+                    if(perguntaAtual == Perguntas.length-2){
                         proxima_Pergunta.setText("Finalizar");
                     }
                     if(checkBoxTexto == true){
@@ -89,10 +92,8 @@ private int perguntaAtual = 0;
                 }
                 }else{
 
-                    //Tela final de quantas acertou ou o que fazer
-                    //
-                    //
-                    //
+                    Intent intent2 = new Intent(getApplicationContext(),Resultado.class);
+                    startActivity(intent2);
 
                 }
             }
