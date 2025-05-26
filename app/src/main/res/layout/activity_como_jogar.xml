@@ -1,9 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ComoJogar">
+    android:padding="24dp"
+    android:background="#121212">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Como Jogar"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#3DDC84"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/textDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="562dp"
+            android:lineSpacingExtra="8dp"
+            android:text='•O jogo é composto por 10 perguntas de múltipla escolha. \n\n
+•Para cada pergunta, leia com atenção e selecione a resposta correta clicando no CheckBox correspondente.\n\n
+•Após escolher sua resposta, clique no botão "Continuar" para passar para a próxima pergunta.\n\n
+•Se tiver dúvidas, você pode usar as ajudas disponíveis durante o jogo.\n\n
+•Use com sabedoria!  O jogo termina quando você responder todas as 10 perguntas.\n\n
+•Ao final, você verá sua pontuação e poderá tentar novamente para melhorar seu desempenho.'
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/idbtnVoltarCJ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="#2196F3"
+            android:padding="12dp"
+            android:text="Voltar"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</ScrollView>
