@@ -3,20 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp"
-    android:background="@drawable/dialog_background">
+    android:background="@drawable/dialog_background"
+    android:padding="24dp">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <TextView
         android:id="@+id/idTextNome"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:text="Digite seu nome:"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
 
     <EditText
         android:id="@+id/idEditNomeUsuario"
@@ -29,7 +33,7 @@
         android:minHeight="50dp"
         android:padding="12dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#CCCCCC"/>
+        android:textColorHint="#CCCCCC" />
 
     <Button
         android:id="@+id/idBtnContinuar"
@@ -38,6 +42,11 @@
         android:text="Continuar"
         android:backgroundTint="#3DDC84"
         android:textColor="#121212"
-        android:minHeight="50dp"/>
+        android:minHeight="50dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>
