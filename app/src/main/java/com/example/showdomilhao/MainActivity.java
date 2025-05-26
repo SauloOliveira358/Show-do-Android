@@ -37,5 +37,21 @@ public class MainActivity extends AppCompatActivity {
               finish();  ;
             }
         });
+
+        placar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Placar.class);
+                startActivity(intent);
+            }
+        });
+
+        comoJogar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ComoJogar.class);
+                startActivity(intent);
+            }
+        });
     }
 }

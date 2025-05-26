@@ -98,12 +98,10 @@ private int numeroPerguntas = 2;
         proxima_Pergunta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                acertoErro();  // o metodo pra saber se acertou ou errou
+                  // o metodo pra saber se acertou ou errou
                 if(numeroPerguntas > 0){
-                    if(numeroPerguntas == 0){
-                        proxima_Pergunta.setText("Finalizar");
-                    }
                     if(checkBoxTexto == true){
+                        acertoErro();
                         perguntaAtual++;
                         numeroPerguntas--;
                         carregar_Perguntas();
@@ -111,7 +109,12 @@ private int numeroPerguntas = 2;
 
 
                         //fim do bloco
-                }
+                    }
+                    if(numeroPerguntas == 1){
+                        proxima_Pergunta.setText("Finalizar");
+                    }
+
+
                 }else{
                     SharedPreferences preferences = getSharedPreferences(ARQUIVO_USUARIO, 0);
                     SharedPreferences.Editor editor = preferences.edit();  //editamos
@@ -129,7 +132,11 @@ private int numeroPerguntas = 2;
     }
         //Carregar as perguntas de forma altomatica
     public void carregar_Perguntas(){
-
+        resposta1.setChecked(false);
+        resposta2.setChecked(false);
+        resposta3.setChecked(false);
+        resposta4.setChecked(false);
+        checkBoxTexto =false;
         if (indicesDisponiveis.size() == 0) return;
 
         Random random = new Random();
@@ -148,11 +155,7 @@ private int numeroPerguntas = 2;
         resposta4.setText(Respostas[perguntaAtual][3]);
 
 
-        resposta1.setChecked(false);
-        resposta2.setChecked(false);
-        resposta3.setChecked(false);
-        resposta4.setChecked(false);
-        checkBoxTexto =false;
+
     }//fim metodo carregar_Perguntas
 
     //metodo de acerto e erro

@@ -16,19 +16,22 @@
         android:gravity="center"
         android:paddingBottom="16dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewScores"
+    <ListView
+        android:id="@+id/idListaPlacar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="547dp"
+        android:background="#0000"
+        android:cacheColorHint="#FFFFFF"
+
+        android:textColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/btnVoltar"
+        android:id="@+id/idbtnVoltarP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Voltar"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#1E88E5"
+        android:text="Voltar"
         android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp" />
+        android:textStyle="bold" />
 </LinearLayout>
