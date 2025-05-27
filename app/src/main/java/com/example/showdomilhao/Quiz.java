@@ -24,7 +24,7 @@ private TextView bemVindo,pergunta,numerodaPergunta;
 private CheckBox resposta1,resposta2,resposta3,resposta4;
 private Button proxima_Pergunta;
 private boolean checkBoxTexto;
-private int pontuação = 0;
+private int pontuação = 0,questoes = 1;
 
     private String [] Perguntas = {
             "Qual arquivo é responsável por declarar permissões e configurações básicas de um app Android?",      // Pergunta 1
@@ -102,6 +102,7 @@ private int numeroPerguntas = 10;
         resposta2 = findViewById(R.id.IdCheckboxResposta2);
         resposta3 = findViewById(R.id.IdCheckboxResposta3);
         resposta4 = findViewById(R.id.IdCheckboxResposta4);
+        numerodaPergunta = findViewById(R.id.IdTextViewNumeroPergunta);
         //adicionar os indices disponiveis
         for (int i = 0; i < Perguntas.length; i++) {
             indicesDisponiveis.add(i);
@@ -179,6 +180,8 @@ private int numeroPerguntas = 10;
         resposta3.setChecked(false);
         resposta4.setChecked(false);
         checkBoxTexto =false;
+        numerodaPergunta.setText("Pergunta "+ questoes + " de 10");
+        questoes++;
         if (indicesDisponiveis.size() == 0) return;
 
         Random random = new Random();
