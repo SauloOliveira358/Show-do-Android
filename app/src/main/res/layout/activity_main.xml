@@ -25,7 +25,7 @@
         android:gravity="center"
         android:paddingBottom="32dp"
         android:text="Desafie seu conhecimento!"
-        android:textColor="#B0BEC5"
+        android:textColor="#B0B0B0"
         android:textSize="18sp" />
 
     <!-- Botões de ação -->
@@ -44,9 +44,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#1E88E5"
+        android:backgroundTint="#2196F3"
         android:text="Placar de Líderes"
-        android:textColor="#FFFFFF"
+        android:textColor="#121212"
         android:textStyle="bold" />
 
     <Button
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#FFD54F"
+        android:backgroundTint="#FFCA28"
         android:text="Como Jogar"
         android:textColor="#121212"
         android:textStyle="bold" />
@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#EF5350"
         android:text="Sair"
-        android:textColor="#FFFFFF"
+        android:textColor="#121212"
         android:textStyle="bold" />
 
     <!-- Rodapé -->

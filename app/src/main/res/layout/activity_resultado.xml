@@ -8,53 +8,56 @@
 
     <TextView
         android:id="@+id/idTextoParabens"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="163dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="80dp"
         android:text="Parabéns!"
-        android:textSize="36sp"
         android:textColor="#3DDC84"
+        android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/idTextoPontuacao"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="80dp"/>
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/idTextoPontuacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
         android:text="Sua Pontuação:"
-        android:textSize="24sp"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/idTextoParabens"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"/>
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idTextoParabens" />
 
     <TextView
         android:id="@+id/idTextoValorPontuacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
         android:text="0"
-        android:textSize="64sp"
         android:textColor="#3DDC84"
+        android:textSize="64sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/idTextoPontuacao"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idTextoPontuacao" />
 
     <Button
         android:id="@+id/idBotaoReiniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reiniciar Quiz"
+        android:layout_marginTop="48dp"
         android:backgroundTint="#3DDC84"
-        android:textColor="#121212"
-        app:layout_constraintTop_toBottomOf="@id/idTextoValorPontuacao"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="Reiniciar Quiz"
+        android:textColor="#FBFAFA"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="48dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idTextoValorPontuacao" />
 
 </android.support.constraint.ConstraintLayout>

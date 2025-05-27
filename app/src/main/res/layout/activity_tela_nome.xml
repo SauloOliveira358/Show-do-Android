@@ -39,10 +39,10 @@
         android:id="@+id/idBtnContinuar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continuar"
         android:backgroundTint="#3DDC84"
-        android:textColor="#121212"
-        android:minHeight="50dp" />
+        android:minHeight="50dp"
+        android:text="Continuar"
+        android:textColor="#FFFFFF" />
 
     <Space
         android:layout_width="match_parent"
