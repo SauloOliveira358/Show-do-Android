@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -116,34 +117,29 @@ private int numeroPerguntas = 10;
         proxima_Pergunta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  // o metodo pra saber se acertou ou errou
-                if(numeroPerguntas > 0){
-                    if(checkBoxTexto == true){
-                        acertoErro();
-                        perguntaAtual++;
-                        numeroPerguntas--;
-                        carregar_Perguntas();
-                        respostaSelecionada = -1;
-                        //bloco para tirar o clique que fica no check box
+                if (!checkBoxTexto) {
+                    Toast.makeText(getApplicationContext(), "Selecione uma resposta!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
+                acertoErro();
+                perguntaAtual++;
+                numeroPerguntas--;
+                respostaSelecionada = -1;
+                checkBoxTexto = false;
 
-                        //fim do bloco
-                    }
-                    if(numeroPerguntas == 1){
+                if (numeroPerguntas > 0) {
+                    carregar_Perguntas();
+                    if (numeroPerguntas == 1) {
                         proxima_Pergunta.setText("Finalizar");
                     }
-
-
-                }else{
-                    acertoErro();
+                } else {
                     SharedPreferences preferences = getSharedPreferences(ARQUIVO_USUARIO, 0);
-                    SharedPreferences.Editor editor = preferences.edit();  //editamos
-                    editor.putInt(PONTUACAO,pontuação);
-                    editor.commit();//Salva o arquivo no banco
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putInt(PONTUACAO, pontuação);
                     editor.apply();
-                    Intent intent2 = new Intent(getApplicationContext(),Resultado.class);
+                    Intent intent2 = new Intent(getApplicationContext(), Resultado.class);
                     startActivity(intent2);
-
                 }
             }
         }); // fim do botao proxima pergunta

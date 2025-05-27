@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         });
         sair.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-              finish();  ;
+            public void onClick(View v) {
+                finishAffinity();
             }
         });
 
