@@ -93,12 +93,6 @@ public class Placar extends AppCompatActivity {
             this.pontos = pontos;
         }
     }
-    private void salvarPontuacao(String nome, int pontos) {
-        SharedPreferences prefs = getSharedPreferences("PLACAR", MODE_PRIVATE);
-        String placarStr = prefs.getString("placar", "");
-        placarStr += nome + ":" + pontos + ";";
-        prefs.edit().putString("placar", placarStr).apply();
-    }
 
 
 

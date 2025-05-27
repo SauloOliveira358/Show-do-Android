@@ -34,6 +34,8 @@ public class Resultado extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences(ARQUIVO_USUARIO, 0);
         int pontuacao = preferences.getInt(PONTUACAO, 0);
         String nome = preferences.getString(NOME, "Sem nome");
+
+        Pontuacao.salvarPontuacao(Resultado.this, nome, pontuacao);
         // Se não receber nada, assume 0 como valor padrão
 
 
@@ -53,6 +55,7 @@ public class Resultado extends AppCompatActivity {
             }
         });
     }
+
 
 
 }
