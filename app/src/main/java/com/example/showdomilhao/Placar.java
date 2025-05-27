@@ -10,13 +10,14 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Placar extends AppCompatActivity {
 
     private ListView listaPlacar;
     private Button voltaPrincipal;
-    private String[] placar;
 
 
     @Override
@@ -30,44 +31,38 @@ public class Placar extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("PLACAR", MODE_PRIVATE);
         String placarStr = prefs.getString("placar", "");
 
-        String[] entradas = placarStr.split(";");
-        List<String> listaFormatada = new ArrayList<>();
-        List<Integer> pontos = new ArrayList<>();
-        List<String> nomes = new ArrayList<>();
+        // Parsear dados
+        List<RankingItem> rankingList = new ArrayList<>();
 
-        for (String entrada : entradas) {
-            if (entrada.trim().isEmpty()) continue;
-
-            String[] partes = entrada.split(":");
-            if (partes.length == 2) {
-                nomes.add(partes[0]);
-                pontos.add(Integer.parseInt(partes[1]));
-            }
-        }
-
-// Ordenar as pontuações em ordem decrescente
-        for (int i = 0; i < pontos.size(); i++) {
-            for (int j = i + 1; j < pontos.size(); j++) {
-                if (pontos.get(j) > pontos.get(i)) {
-                    // Troca pontuação
-                    int tempPonto = pontos.get(i);
-                    pontos.set(i, pontos.get(j));
-                    pontos.set(j, tempPonto);
-
-                    // Troca nome correspondente
-                    String tempNome = nomes.get(i);
-                    nomes.set(i, nomes.get(j));
-                    nomes.set(j, tempNome);
+        if (!placarStr.isEmpty()) {
+            String[] entradas = placarStr.split(";");
+            for (String entrada : entradas) {
+                if (!entrada.trim().isEmpty()) {
+                    String[] partes = entrada.split(":");
+                    if (partes.length == 2) {
+                        String nome = partes[0];
+                        int pontos = Integer.parseInt(partes[1]);
+                        rankingList.add(new RankingItem(nome, pontos));
+                    }
                 }
             }
         }
 
-// Montar lista final formatada
-        for (int i = 0; i < nomes.size(); i++) {
-            listaFormatada.add(nomes.get(i) + " - " + pontos.get(i));
+        // Ordenar decrescente
+        Collections.sort(rankingList, new Comparator<RankingItem>() {
+            @Override
+            public int compare(RankingItem o1, RankingItem o2) {
+                return o2.pontos - o1.pontos;
+            }
+        });
+
+        // Preparar para exibir
+        List<String> listaFormatada = new ArrayList<>();
+        for (RankingItem item : rankingList) {
+            listaFormatada.add(item.nome + " - " + item.pontos + " pts");
         }
 
-// Exibir no ListView
+        // Adapter
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
@@ -88,14 +83,23 @@ public class Placar extends AppCompatActivity {
 
 
     }
-    public void salvarPontuacao(String nome, int pontos) {
+
+    private static class RankingItem {
+        String nome;
+        int pontos;
+
+        RankingItem(String nome, int pontos) {
+            this.nome = nome;
+            this.pontos = pontos;
+        }
+    }
+    private void salvarPontuacao(String nome, int pontos) {
         SharedPreferences prefs = getSharedPreferences("PLACAR", MODE_PRIVATE);
         String placarStr = prefs.getString("placar", "");
-
-        // Adiciona nova pontuação
         placarStr += nome + ":" + pontos + ";";
-
         prefs.edit().putString("placar", placarStr).apply();
     }
+
+
 
 }
