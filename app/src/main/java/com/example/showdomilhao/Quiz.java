@@ -20,43 +20,65 @@ import java.util.Random;
 
 
 public class Quiz extends AppCompatActivity {
-private TextView bemVindo,pergunta;
+private TextView bemVindo,pergunta,numerodaPergunta;
 private CheckBox resposta1,resposta2,resposta3,resposta4;
 private Button proxima_Pergunta;
 private boolean checkBoxTexto;
 private int pontuação = 0;
 
-private String []  Perguntas = {
-        "Qual arquivo é responsável por declarar permissões e configurações básicas de um app Android?",
-        "Para alterar o layout visual de uma activity, qual tipo de arquivo é normalmente utilizado?",
-        "Qual linguagem é oficialmente suportada pelo Google para desenvolvimento Android desde 2019?",
-        "Qual classe é usada para criar uma nova tela (interface) em Android?",
-        "Qual é o propósito do arquivo build.gradle (Module: app)?",
-        "Qual método do ciclo de vida de uma Activity é chamado quando ela se torna visível ao usuário?",
-        "O que é um Intent no Android?",
-        "Qual método usamos para detectar cliques em um botão no Android?",
-        "O que faz o método apply() do SharedPreferences.Editor?",
-        "Como verificamos se um CheckBox está marcado?",
-        "Como iniciamos o uso do SharedPreferences?",
-        "Qual interface é implementada para usar um OnClickListener?",
-};
+    private String [] Perguntas = {
+            "Qual arquivo é responsável por declarar permissões e configurações básicas de um app Android?",      // Pergunta 1
+            "Para alterar o layout visual de uma activity, qual tipo de arquivo é normalmente utilizado?",        // Pergunta 2
+            "Qual linguagem é oficialmente suportada pelo Google para desenvolvimento Android desde 2019?",       // Pergunta 3
+            "Qual classe é usada para criar uma nova tela (interface) em Android?",                               // Pergunta 4
+            "Qual é o propósito do arquivo build.gradle (Module: app)?",                                          // Pergunta 5
+            "Qual método do ciclo de vida de uma Activity é chamado quando ela se torna visível ao usuário?",     // Pergunta 6
+            "O que é um Intent no Android?",                                                                      // Pergunta 7
+            "Qual método usamos para detectar cliques em um botão no Android?",                                   // Pergunta 8
+            "O que faz o método apply() do SharedPreferences.Editor?",                                            // Pergunta 9
+            "Como verificamos se um CheckBox está marcado?",                                                      // Pergunta 10
+            "Como iniciamos o uso do SharedPreferences?",                                                         // Pergunta 11
+            "Qual interface é implementada para usar um OnClickListener?",                                        // Pergunta 12
+            "Qual destes componentes permite ao usuário digitar texto?",                                          // Pergunta 13
+            "Qual a primeira coisa que um progamador Android faz ao abrir o Android Studio?",                     // Pergunta 14
+            "Para que serve o botão \"Forçar Parada\" em um app?"                                                 // Pergunta 15
+    };
 
-private String[][] Respostas = {
-        {"MainActivity.java","AndroidManifest.xml","strings.xml","styles.xml"},
-        {".java",".gradle",".xml",".json"},
-        {"JavaScript","C++","Kotlin", "Python"},
-        {"Intent", "Fragment", "View", "Activity"},
-        {"Armazenar strings do app","Controlar a navegação entre activities","Declarar dependências e configurações de build", "Desenhar elementos gráficos"},
-        {"onDestroy()", "onStart()", "onCreate()", "onPause()"},
-        {"Uma mensagem para ativar componentes","Um tipo de layout", "Uma permissão especial", "Um componente visual"},
-        {"setOnClickListener()","onClick()", "setOnClick()", "detectClick()"},
-        {"Salva dados de forma síncrona", "Apaga os dados", "Aplica mudanças de forma assíncrona", "Inicia o SharedPreferences"},
-        {"checkbox.isChecked()", "checkbox.isMarked()", "checkbox.getCheck()", "checkbox.isSelected()"},
-        {"loadPreferences()", "startPreferences()", "openFileInput()", "getSharedPreferences()"},
-        {"Runnable", "OnClickListener", "ClickEvent", "ViewManager"},
-};
+    private String[][] Respostas = {
+            {"MainActivity.java","AndroidManifest.xml","strings.xml","styles.xml"},                              // Pergunta 1
+            {".java",".gradle",".xml",".json"},                                                                   // Pergunta 2
+            {"JavaScript","C++","Kotlin", "Python"},                                                              // Pergunta 3
+            {"Intent", "Fragment", "View", "Activity"},                                                           // Pergunta 4
+            {"Armazenar strings do app","Navegação entre activities","Dependências e configurações de build", "Elementos gráficos"}, // Pergunta 5
+            {"onDestroy()", "onStart()", "onCreate()", "onPause()"},                                              // Pergunta 6
+            {"Uma mensagem para ativar componentes","Um tipo de layout", "Uma permissão especial", "Um componente visual"}, // Pergunta 7
+            {"setOnClickListener()","onClick()", "setOnClick()", "detectClick()"},                                // Pergunta 8
+            {"Salva dados de forma síncrona", "Apaga os dados", "Aplica mudanças de forma assíncrona", "Inicia o SharedPreferences"}, // Pergunta 9
+            {"checkbox.isChecked()", "checkbox.isMarked()", "checkbox.getCheck()", "checkbox.isSelected()"},     // Pergunta 10
+            {"loadPreferences()", "startPreferences()", "openFileInput()", "getSharedPreferences()"},             // Pergunta 11
+            {"Runnable", "OnClickListener", "ClickEvent", "ViewManager"},                                         // Pergunta 12
+            {"TextView","Button","EditText","ImageView"},                                                         // Pergunta 13
+            {"Programa um app","Vai tomar um café ate carregar","Reza pro Gradle nao quebrar","Fecha e tenta de novo"}, // Pergunta 14
+            {"Desabafar","Dizer: Chega,já deu por hoje!","Fazer o app pensar sobre seus erros","Todas as anteriores"}, // Pergunta 15
+    };
 
-private int [] respostaCerta = {1,2,2,3,2,1,0,0,2,0,3,1}; //aqui coloca as respostas correta em cada pergunta na ordem certa
+    private int [] respostaCerta = {
+            1,  // Pergunta 1
+            2,  // Pergunta 2
+            2,  // Pergunta 3
+            3,  // Pergunta 4
+            2,  // Pergunta 5
+            1,  // Pergunta 6
+            0,  // Pergunta 7
+            0,  // Pergunta 8
+            2,  // Pergunta 9
+            0,  // Pergunta 10
+            3,  // Pergunta 11
+            1,  // Pergunta 12
+            2,  // Pergunta 13
+            0,  // Pergunta 14
+            3   // Pergunta 15
+    };
 private int respostaSelecionada;
 private int perguntaAtual = 0;
 private int numeroPerguntas = 10;
@@ -69,6 +91,10 @@ private int numeroPerguntas = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Remove a barra de título (ActionBar)
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         setContentView(R.layout.activity_quiz);
         bemVindo = findViewById(R.id.IdTextViewShowdoAndroid);
         pergunta = findViewById(R.id.IdTextViewPergunta);
@@ -180,7 +206,7 @@ private int numeroPerguntas = 10;
             pontuação++;
             String Stringpontuação = String.valueOf(pontuação);
             //ao pra testes
-            bemVindo.setText(bemVindo.getText().toString() + " " + numeroPerguntas);
+            bemVindo.setText(bemVindo.getText().toString());
         }
     }
 
