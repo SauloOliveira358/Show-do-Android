@@ -28,19 +28,37 @@ private int pontuação = 0;
 private String []  Perguntas = {
         "Qual arquivo é responsável por declarar permissões e configurações básicas de um app Android?",
         "Para alterar o layout visual de uma activity, qual tipo de arquivo é normalmente utilizado?",
-        "Pergunta3",
+        "Qual linguagem é oficialmente suportada pelo Google para desenvolvimento Android desde 2019?",
+        "Qual classe é usada para criar uma nova tela (interface) em Android?",
+        "Qual é o propósito do arquivo build.gradle (Module: app)?",
+        "Qual método do ciclo de vida de uma Activity é chamado quando ela se torna visível ao usuário?",
+        "O que é um Intent no Android?",
+        "Qual método usamos para detectar cliques em um botão no Android?",
+        "O que faz o método apply() do SharedPreferences.Editor?",
+        "Como verificamos se um CheckBox está marcado?",
+        "Como iniciamos o uso do SharedPreferences?",
+        "Qual interface é implementada para usar um OnClickListener?",
 };
 
 private String[][] Respostas = {
         {"MainActivity.java","AndroidManifest.xml","strings.xml","styles.xml"},
         {".java",".gradle",".xml",".json"},
-        {"Resposta1","Resposta2","Resposta3","Resposta4"},
+        {"JavaScript","C++","Kotlin", "Python"},
+        {"Intent", "Fragment", "View", "Activity"},
+        {"Armazenar strings do app","Controlar a navegação entre activities","Declarar dependências e configurações de build", "Desenhar elementos gráficos"},
+        {"onDestroy()", "onStart()", "onCreate()", "onPause()"},
+        {"Uma mensagem para ativar componentes","Um tipo de layout", "Uma permissão especial", "Um componente visual"},
+        {"setOnClickListener()","onClick()", "setOnClick()", "detectClick()"},
+        {"Salva dados de forma síncrona", "Apaga os dados", "Aplica mudanças de forma assíncrona", "Inicia o SharedPreferences"},
+        {"checkbox.isChecked()", "checkbox.isMarked()", "checkbox.getCheck()", "checkbox.isSelected()"},
+        {"loadPreferences()", "startPreferences()", "openFileInput()", "getSharedPreferences()"},
+        {"Runnable", "OnClickListener", "ClickEvent", "ViewManager"},
 };
 
-private int [] respostaCerta = {1,2,0}; //aqui coloca as respostas correta em cada pergunta na ordem certa
+private int [] respostaCerta = {1,2,2,3,2,1,0,0,2,0,3,1}; //aqui coloca as respostas correta em cada pergunta na ordem certa
 private int respostaSelecionada;
 private int perguntaAtual = 0;
-private int numeroPerguntas = 2;
+private int numeroPerguntas = 10;
 
 
     private ArrayList<Integer> indicesDisponiveis = new ArrayList<>();
