@@ -105,6 +105,7 @@ private int numeroPerguntas = 2;
                         perguntaAtual++;
                         numeroPerguntas--;
                         carregar_Perguntas();
+                        respostaSelecionada = -1;
                         //bloco para tirar o clique que fica no check box
 
 
@@ -116,6 +117,7 @@ private int numeroPerguntas = 2;
 
 
                 }else{
+                    acertoErro();
                     SharedPreferences preferences = getSharedPreferences(ARQUIVO_USUARIO, 0);
                     SharedPreferences.Editor editor = preferences.edit();  //editamos
                     editor.putInt(PONTUACAO,pontuação);
