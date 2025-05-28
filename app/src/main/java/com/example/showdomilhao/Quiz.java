@@ -6,6 +6,7 @@ import static com.example.showdomilhao.Dados.*;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,8 +23,8 @@ import java.util.Random;
 public class Quiz extends AppCompatActivity {
 private TextView bemVindo,pergunta,numerodaPergunta;
 private CheckBox resposta1,resposta2,resposta3,resposta4;
-private Button proxima_Pergunta;
-private boolean checkBoxTexto;
+private Button proxima_Pergunta, cartas;
+private boolean checkBoxTexto,cartaSelecionou;
 private int pontuação = 0,questoes = 1;
 
     private String [] Perguntas = {
@@ -82,6 +83,7 @@ private int pontuação = 0,questoes = 1;
 private int respostaSelecionada;
 private int perguntaAtual = 0;
 private int numeroPerguntas = 10;
+private int cartasRecebidas;
 
 
     private ArrayList<Integer> indicesDisponiveis = new ArrayList<>();
@@ -103,6 +105,8 @@ private int numeroPerguntas = 10;
         resposta3 = findViewById(R.id.IdCheckboxResposta3);
         resposta4 = findViewById(R.id.IdCheckboxResposta4);
         numerodaPergunta = findViewById(R.id.IdTextViewNumeroPergunta);
+
+        cartas = findViewById(R.id.IdBtnCartas);
         //adicionar os indices disponiveis
         for (int i = 0; i < Perguntas.length; i++) {
             indicesDisponiveis.add(i);
@@ -167,14 +171,83 @@ private int numeroPerguntas = 10;
                     editor.apply();
                     Intent intent2 = new Intent(getApplicationContext(), Resultado.class);
                     startActivity(intent2);
+                    finish();
                 }
             }
         }); // fim do botao proxima pergunta
 
+        //botao Cartas
+        cartas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Cartas.class);
+                startActivityForResult(intent, 1);
+                cartaSelecionou = true;
+
+            }
+
+        });
+
+
 
     }
-        //Carregar as perguntas de forma altomatica
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+             cartasRecebidas = data.getIntExtra("Carta",-1);
+            cartas.setClickable(false);
+            cartas.setAlpha(0.5f);
+
+
+            if (cartasRecebidas > 0) {
+                int correta = respostaCerta[perguntaAtual];
+
+                // Array para evitar desativar a mesma resposta mais de uma vez
+                boolean[] desativadas = new boolean[4];
+                desativadas[correta] = true; // não pode desativar a certa
+
+                Random random = new Random();
+                int eliminadas = 0;
+
+                while (eliminadas < cartasRecebidas) {
+                    int i = random.nextInt(4); // entre 0 e 3
+
+                    if (!desativadas[i]) {
+                        switch (i) {
+                            case 0:
+                                resposta1.setEnabled(false);
+                                resposta1.setAlpha(0.5f); break;
+                            case 1: resposta2.setEnabled(false);
+                                resposta2.setAlpha(0.5f);break;
+                            case 2: resposta3.setEnabled(false);
+                                resposta3.setAlpha(0.5f);break;
+                            case 3: resposta4.setEnabled(false);
+                                resposta4.setAlpha(0.5f);break;
+                        }
+                        desativadas[i] = true;
+                        eliminadas++;
+                    }
+                }
+            }
+
+        }
+    }
+
+    //Carregar as perguntas de forma altomatica
     public void carregar_Perguntas(){
+        resposta1.setEnabled(true);
+        resposta1.setAlpha(1f);
+        resposta2.setEnabled(true);
+        resposta2.setAlpha(1f);
+        resposta3.setEnabled(true);
+        resposta3.setAlpha(1f);
+        resposta4.setEnabled(true);
+        resposta4.setAlpha(1f);
+
+
         resposta1.setChecked(false);
         resposta2.setChecked(false);
         resposta3.setChecked(false);
@@ -202,6 +275,7 @@ private int numeroPerguntas = 10;
 
 
     }//fim metodo carregar_Perguntas
+
 
     //metodo de acerto e erro
     public void acertoErro(){
