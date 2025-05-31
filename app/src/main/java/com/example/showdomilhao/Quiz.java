@@ -42,7 +42,13 @@ private int pontuação = 0,questoes = 1;
             "Qual interface é implementada para usar um OnClickListener?",                                        // Pergunta 12
             "Qual destes componentes permite ao usuário digitar texto?",                                          // Pergunta 13
             "Qual a primeira coisa que um progamador Android faz ao abrir o Android Studio?",                     // Pergunta 14
-            "Para que serve o botão \"Forçar Parada\" em um app?"                                                 // Pergunta 15
+            "Para que serve o botão \"Forçar Parada\" em um app?",                                                 // Pergunta 15
+            "Qual é o nome da ferramenta oficial para desenvolvimento Android?",                                     //pergunta16
+            "Qual método é chamado quando uma Activity é criada?",                                                  //pergunta17
+            "O que acontece se você colocar o celular no modo avião?",                                               //pergunta18
+            " Quando o Android começa a travar, o que ele está tentando dizer?",                                        //pergunta19
+            "O que é o LinearLayout no Android Studio?"                                                                 //pergunta20
+
     };
 
     private String[][] Respostas = {
@@ -61,6 +67,12 @@ private int pontuação = 0,questoes = 1;
             {"TextView","Button","EditText","ImageView"},                                                         // Pergunta 13
             {"Programa um app","Vai tomar um café ate carregar","Reza pro Gradle nao quebrar","Fecha e tenta de novo"}, // Pergunta 14
             {"Desabafar","Dizer: Chega,já deu por hoje!","Fazer o app pensar sobre seus erros","Todas as anteriores"}, // Pergunta 15
+            {"Eclipse","Android Studio","IntelliJ IDEA","Kotlin"},                                                  //Pergunta16
+            {"onCreate()", "onStart()","onResume()","onDestroy()"},                                                  //pergunta17
+            {"Ele começa a voar","Liga som de turbina","Desativa redes móveis e Wi-Fi","Mostra a janela do avião"}, //pergunta18
+            {"Me dá férias!","Fecha esses 87 aplicativos, por favor!","Atualização chegando…","Você merece um novo celular"},  //pergunta19
+            {"Um tipo de banco de dados","Layout dos elementos em linha vertical ou horizontal","Um componente para animação","Activity especial"}  //pergunta20
+
     };
 
     private int [] respostaCerta = {
@@ -78,7 +90,14 @@ private int pontuação = 0,questoes = 1;
             1,  // Pergunta 12
             2,  // Pergunta 13
             0,  // Pergunta 14
-            3   // Pergunta 15
+            3,   // Pergunta 15
+            1,   //Pergunta16
+            0,  //pergunta17
+            2,  //pergunta18
+            1,  //pergunta19
+            1   //pergunta20
+
+
     };
 private int respostaSelecionada;
 private int perguntaAtual = 0;

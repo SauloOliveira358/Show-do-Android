@@ -30,7 +30,7 @@
             android:text='•O jogo é composto por 10 perguntas de múltipla escolha. \n\n
 •Para cada pergunta, leia com atenção e selecione a resposta correta clicando no CheckBox correspondente.\n\n
 •Após escolher sua resposta, clique no botão "Continuar" para passar para a próxima pergunta.\n\n
-•Se tiver dúvidas, você pode usar as ajudas disponíveis durante o jogo.\n\n
+•Se tiver dúvidas, você pode usar a ajuda disponível durante o jogo.\n\n
 •Use com sabedoria!  O jogo termina quando você responder todas as 10 perguntas.\n\n
 •Ao final, você verá sua pontuação e poderá tentar novamente para melhorar seu desempenho.'
             android:textColor="#FFFFFF"
