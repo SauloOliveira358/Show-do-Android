@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#121212">
 
     <TextView
         android:id="@+id/idTextoParabens"
-        android:layout_width="163dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="27dp"
+        android:gravity="center"
         android:text="Parabéns!"
         android:textColor="#3DDC84"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/idTextoPontuacao"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,39 +28,40 @@
         android:id="@+id/idTextoPontuacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginBottom="48dp"
         android:text="Sua Pontuação:"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/idTextoValorPontuacao"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idTextoParabens" />
+        app:layout_constraintTop_toBottomOf="@+id/idTextoParabens" />
 
     <TextView
         android:id="@+id/idTextoValorPontuacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginBottom="148dp"
         android:text="0"
         android:textColor="#3DDC84"
         android:textSize="64sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/idBotaoReiniciar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idTextoPontuacao" />
+        app:layout_constraintTop_toBottomOf="@+id/idTextoPontuacao" />
 
     <Button
         android:id="@+id/idBotaoReiniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginBottom="127dp"
         android:backgroundTint="#3DDC84"
         android:text="Reiniciar Quiz"
         android:textColor="#FBFAFA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idTextoValorPontuacao" />
+        app:layout_constraintTop_toBottomOf="@+id/idTextoValorPontuacao" />
 
 </android.support.constraint.ConstraintLayout>

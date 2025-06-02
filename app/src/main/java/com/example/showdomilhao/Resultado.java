@@ -17,7 +17,7 @@ import android.widget.TextView; // Texto na interface
 public class Resultado extends AppCompatActivity {
 
     // Declaração dos componentes da interface
-    private TextView textoPontuacao; // Exibe a pontuação final
+    private TextView textoPontuacao, parabens; // Exibe a pontuação final
     private Button botaoReiniciar;   // Botão para reiniciar o quiz
     private int resultado_Quiz;
     // Método onCreate é chamado quando a Activity é criada
@@ -29,7 +29,7 @@ public class Resultado extends AppCompatActivity {
         // Faz ligação entre os componentes do XML e as variáveis no código
         textoPontuacao = findViewById(R.id.idTextoValorPontuacao);
         botaoReiniciar = findViewById(R.id.idBotaoReiniciar);
-
+        parabens = findViewById(R.id.idTextoParabens);
         // Recupera a pontuação enviada pela Activity Quiz
         SharedPreferences preferences = getSharedPreferences(ARQUIVO_USUARIO, 0);
         int pontuacao = preferences.getInt(PONTUACAO, 0);
@@ -37,7 +37,15 @@ public class Resultado extends AppCompatActivity {
 
         Pontuacao.salvarPontuacao(Resultado.this, nome, pontuacao);
         // Se não receber nada, assume 0 como valor padrão
-
+        if(pontuacao <=4){
+            parabens.setText("Vergon da profisson");
+        }else if (pontuacao >4 && pontuacao <= 6){
+            parabens.setText(parabens.getText() +", Tá na média");
+        }else if (pontuacao > 7 && pontuacao <=9){
+            parabens.setText(parabens.getText() + ", Tá sabendo em");
+        }else if (pontuacao == 10){
+            parabens.setText(parabens.getText() + ", Que isso hackeou o quiz");
+        }
 
 
 
