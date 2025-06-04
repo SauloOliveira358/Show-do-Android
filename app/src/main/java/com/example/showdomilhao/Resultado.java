@@ -5,6 +5,7 @@ import static com.example.showdomilhao.Dados.ARQUIVO_USUARIO;
 import static com.example.showdomilhao.Dados.NOME;
 import static com.example.showdomilhao.Dados.PONTUACAO;
 
+import android.annotation.SuppressLint;
 import android.content.Intent; // Para navegação entre telas (Activities)
 import android.content.SharedPreferences;
 import android.os.Bundle; // Para salvar e recuperar o estado da Activity
@@ -18,11 +19,15 @@ public class Resultado extends AppCompatActivity {
 
     // Declaração dos componentes da interface
     private TextView textoPontuacao, parabens; // Exibe a pontuação final
-    private Button botaoReiniciar;   // Botão para reiniciar o quiz
+    private Button botaoReiniciar,voltar;   // Botão para reiniciar o quiz
     private int resultado_Quiz;
     // Método onCreate é chamado quando a Activity é criada
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         super.onCreate(savedInstanceState); // Chama o método da classe pai
         setContentView(R.layout.activity_resultado); // Define qual layout será usado (activity_resultado.xml)
 
@@ -30,6 +35,16 @@ public class Resultado extends AppCompatActivity {
         textoPontuacao = findViewById(R.id.idTextoValorPontuacao);
         botaoReiniciar = findViewById(R.id.idBotaoReiniciar);
         parabens = findViewById(R.id.idTextoParabens);
+        voltar = findViewById(R.id.IdBtnSair);
+
+        voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         // Recupera a pontuação enviada pela Activity Quiz
         SharedPreferences preferences = getSharedPreferences(ARQUIVO_USUARIO, 0);
         int pontuacao = preferences.getInt(PONTUACAO, 0);
@@ -38,10 +53,10 @@ public class Resultado extends AppCompatActivity {
         Pontuacao.salvarPontuacao(Resultado.this, nome, pontuacao);
         // Se não receber nada, assume 0 como valor padrão
         if(pontuacao <=4){
-            parabens.setText("Vergon da profisson");
+            parabens.setText("Vergon da profisson!");
         }else if (pontuacao >4 && pontuacao <= 6){
             parabens.setText(parabens.getText() +", Tá na média");
-        }else if (pontuacao > 7 && pontuacao <=9){
+        }else if (pontuacao >= 7 && pontuacao <=9){
             parabens.setText(parabens.getText() + ", Tá sabendo em");
         }else if (pontuacao == 10){
             parabens.setText(parabens.getText() + ", Que isso hackeou o quiz");

@@ -10,9 +10,9 @@
         android:id="@+id/idTextoParabens"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="49dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="49dp"
         android:layout_marginBottom="27dp"
         android:gravity="center"
         android:text="Parabéns!"
@@ -41,7 +41,7 @@
         android:id="@+id/idTextoValorPontuacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="148dp"
+        android:layout_marginBottom="149dp"
         android:text="0"
         android:textColor="#3DDC84"
         android:textSize="64sp"
@@ -55,7 +55,7 @@
         android:id="@+id/idBotaoReiniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="127dp"
+        android:layout_marginBottom="126dp"
         android:backgroundTint="#3DDC84"
         android:text="Reiniciar Quiz"
         android:textColor="#FBFAFA"
@@ -63,5 +63,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idTextoValorPontuacao" />
+
+    <Button
+        android:id="@+id/IdBtnSair"
+        android:layout_width="49dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#DD0A0A"
+        android:gravity="center|top"
+        android:text="X"
+        android:textColor="#FBFAFA"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

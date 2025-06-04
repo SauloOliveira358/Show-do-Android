@@ -47,7 +47,34 @@ private int pontuação = 0,questoes = 1;
             "Qual método é chamado quando uma Activity é criada?",                                                  //pergunta17
             "O que acontece se você colocar o celular no modo avião?",                                               //pergunta18
             " Quando o Android começa a travar, o que ele está tentando dizer?",                                        //pergunta19
-            "O que é o LinearLayout no Android Studio?"                                                                 //pergunta20
+            "O que é o LinearLayout no Android Studio?",                                                                //pergunta20
+            "Qual método é usado para abrir outra Activity?",                                                            //pergunta21
+            "Qual elemento visual exibe uma lista de itens na tela?",                                                      //pergunta22
+            "Qual componente permite a navegação entre diferentes seções com abas?",                              // Pergunta 22
+            "O que representa a pasta 'res' em um projeto Android?",                                              // Pergunta 23
+            "Qual é a finalidade do arquivo strings.xml?",                                                        // Pergunta 24
+            "Para qual propósito usamos o método findViewById()?",                                                // Pergunta 25
+            "Qual diretório contém os arquivos de layout em um app Android?",                                     // Pergunta 26
+            "O que acontece se não declararmos uma Activity no AndroidManifest.xml?",                             // Pergunta 27
+            "Qual é o propósito da classe RecyclerView?",                                                         // Pergunta 28
+            "Qual desses arquivos define o tema visual do aplicativo?",                                          // Pergunta 29
+            "Qual comando mágico faz uma Activity desaparecer?",                              // Pergunta 30
+            "Onde você deve colocar aquela imagem linda do seu botão?",        // Pergunta 31
+            "Onde você organiza aquele arco-íris de cores?",               // Pergunta 32
+            "Se quiser avisar o usuário com uma mensagem que desaparece sozinha?",             // Pergunta 33
+            "O que é uma Activity no Activity no Android?",                                  //pergunta34
+            "Para que serve o método setContentView()",                                          //pergunta35
+            "Qual o uso do SharedPreferences?",                                         //pergunta 36
+            "Qual componente é mais recomendado para exibir listas grandes?",          //pergunta37
+            "O que é necessário para declarar uma nova Activity?",                      //pergunta38
+            "Qual elemento XML define um botão?",                                       //pergunta39
+            "O que é o Gradle no Android Studio?",                                          //pergunta40
+            "Como se define uma string reutilizável?",                                      //pergunta41
+            "Qual tipo de layout posiciona elementos em sequência vertical ou horizontal?",   //pergunta42
+            "O que é um Toast no Android?",                                          //pergunta43
+            "Como é representada uma interface gráfica no Android?",            //pergunta44
+
+
 
     };
 
@@ -71,7 +98,32 @@ private int pontuação = 0,questoes = 1;
             {"onCreate()", "onStart()","onResume()","onDestroy()"},                                                  //pergunta17
             {"Ele começa a voar","Liga som de turbina","Desativa redes móveis e Wi-Fi","Mostra a janela do avião"}, //pergunta18
             {"Me dá férias!","Fecha esses 87 aplicativos, por favor!","Atualização chegando…","Você merece um novo celular"},  //pergunta19
-            {"Um tipo de banco de dados","Layout dos elementos em linha vertical ou horizontal","Um componente para animação","Activity especial"}  //pergunta20
+            {"Um tipo de banco de dados","Layout dos elementos em linha vertical ou horizontal","Um componente para animação","Activity especial"},  //pergunta20
+            {"setContentView","startActivity","findViewById","Button"},                                                         //pergunta21
+            {"Intent","EditText","ListaLigada","ListView"},                                                                        //pergunta22
+            {"ViewPager", "RecyclerView", "TabLayout", "NavigationDrawer"},                                       // Pergunta 22
+            {"Contém arquivos executáveis", "Contém recursos como layouts e imagens", "Contém código Java", "Contém configurações do sistema"}, // Pergunta 23
+            {"Armazenar temas", "Guardar imagens", "Centralizar textos usados no app", "Controlar permissões"},   // Pergunta 24
+            {"Buscar arquivos XML", "Encontrar Views no layout", "Acessar banco de dados", "Ativar notificações"}, // Pergunta 25
+            {"res/layout", "src/layout", "layout/res", "drawable/layout"},                                        // Pergunta 26
+            {"Ela funciona normalmente", "Ela não poderá ser executada", "Ela consome mais bateria", "Ela se torna invisível"}, // Pergunta 27
+            {"Mostrar uma imagem", "Exibir itens de forma eficiente em listas", "Executar animações", "Acessar sensores"}, // Pergunta 28
+            {"colors.xml", "styles.xml", "themes.xml", "AndroidManifest.xml"},                                    // Pergunta 29
+            {"vanish()", "dismiss()", "finish()", "abracadabra()"},                                                   // Pergunta 30
+            {"res/raw", "res/drawable", "res/assets", "res/imagesThatIPromiseAreUseful"},                             // Pergunta 31
+            {"colors.xml", "magic_colors.png", "styles.xml", "rainbow_config.xml"},                                   // Pergunta 32
+            {"Toast", "PopUpSurpresa", "Snackbar", "Alarme de incêndio"},                                             // Pergunta 33
+            {"Uma função do sistema Operacional","Um tipo de arquivo xml","Uma tela do aplicativo","Um serviço em segundo plano"},  //pergunta34
+            {"Definir uma orientação da tela","Iniciar uma activity","Conectar o codigo a interface XML","Salvar a tela"},  //pergunta 35
+            {"Armazenar grandes volumes de dados","Salvar configurações simples","Controlar permissão de internet","Renderizar elementos gráficos"},  // pergunta36
+            {"ListView","ScrollView","RecyclerView","LinearLayout"},                                                                                //pergunta 37
+            {"Criar arquivo Java e layout XML","Adicionar permissão no Manifest","Definir no AndroidManifest.xml","nstalar pacote externo"},        //pergunta38
+            {"<TextView>","EditText>","<Button>","<ImageView>"},                                                    //pergunta39
+            {"O que é o Gradle no Android Studio?","Sistema de build","erenciador de eventos","Ferramenta gráfica"},        //pergunta40
+            {"No arquivo layout.xml","Na classe Java","Em AndroidManifest.xml","Em res/values/strings.xml"},   //pergunta41
+            {"RelativeLayout","LinhaLayout","GridLayout","LinearLayout"},                           //pergunta42
+            {"um toque na tela","Uma caixa de diálogo","Um componente visual fixo","Uma mensagem breve na tela"},     //pergunta43
+            {"Com arquivos XML","Com arquivo JSON","RTX 3590","Usando JavaScript"} ,               //pergunta44
 
     };
 
@@ -95,7 +147,37 @@ private int pontuação = 0,questoes = 1;
             0,  //pergunta17
             2,  //pergunta18
             1,  //pergunta19
-            1   //pergunta20
+            1,   //pergunta20
+            1, //pergunta21
+            3, //pergunta22
+            2,  // Pergunta 22
+            1,  // Pergunta 23
+            2,  // Pergunta 24
+            1,  // Pergunta 25
+            0,  // Pergunta 26
+            1,  // Pergunta 27
+            1,  // Pergunta 28
+            2,   // Pergunta 29
+            2,  // Pergunta 30
+            1,  // Pergunta 31
+            0,  // Pergunta 32
+            0,   // Pergunta 33
+            2,   // pergunta34
+            2, // pergunta 35
+            1, //pergunta 36
+            2,  //pergunta37
+            2,  //pergunta38
+            2, //pergunta39
+            1, // pergunta 40
+            3, //pergunta41
+            3,   //pergunta42
+            3, //pergunta43
+            0,  //pergunta44
+
+
+
+
+
 
 
     };
