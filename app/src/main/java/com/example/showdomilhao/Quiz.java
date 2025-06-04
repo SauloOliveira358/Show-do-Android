@@ -73,6 +73,14 @@ private int pontuação = 0,questoes = 1;
             "Qual tipo de layout posiciona elementos em sequência vertical ou horizontal?",   //pergunta42
             "O que é um Toast no Android?",                                          //pergunta43
             "Como é representada uma interface gráfica no Android?",            //pergunta44
+            "Qual foi o nome da primeira versão pública do Android?",           //pertunta 45
+            "Qual desses nomes de doces nunca foi usado em uma versão oficial do Android?", //pergunta 46
+            "O mascote do Android tem um nome oficial. Qual é?",                        //pergunta47
+            "Qual dessas versões do Android veio primeiro?",                        //pergunta48
+            "Qual é a diferença principal entre Android e iOS?",                        //pergunta49
+            "O Android é baseado em qual núcleo de sistema operacional?",                  // pergunta50
+            "Qual é a loja oficial de aplicativos do Android?"                                                       //pergunta51
+
 
 
 
@@ -124,6 +132,13 @@ private int pontuação = 0,questoes = 1;
             {"RelativeLayout","LinhaLayout","GridLayout","LinearLayout"},                           //pergunta42
             {"um toque na tela","Uma caixa de diálogo","Um componente visual fixo","Uma mensagem breve na tela"},     //pergunta43
             {"Com arquivos XML","Com arquivo JSON","RTX 3590","Usando JavaScript"} ,               //pergunta44
+            {"Apple Pie","Cupcake","Donut","Beta"},                                             //pergunta 45
+            {"KitKat","Jelly Bean","Pancake","Ice Cream Sandwich"},                         //pergunta46
+            {"Bugdroid","Droidinho","Andy","Robozinho"},                        //pergunta47
+            {"Lollipop","Marshmallow","Nougat","KitKat"},                       //pergunta48
+            {"Um só funciona com internet","Um é de código aberto, o outro fechado","Android não roda apps","Nenhuma"},                //´pergunta49
+            {"Windows","Linux","MacOS","Unix"},                                             //pergunta50
+            {"Google Play Store","Android Store","Android Market","Galaxy Apps"},               //pergunta51
 
     };
 
@@ -173,6 +188,13 @@ private int pontuação = 0,questoes = 1;
             3,   //pergunta42
             3, //pergunta43
             0,  //pergunta44
+            1,  //pergunta45
+            2,   //pergunta46
+            0,   //pergunta47
+            3,   //pergunta48
+            1,     //pergunta49
+            1,    //perguntas50
+            0,   //pergunta51
 
 
 
